@@ -5,13 +5,6 @@ if (window.location.hash.substring(1)) {
   var id = 1;
   window.location.hash = 1;
 }
-var url = new URL(window.location.href);
-if(url.searchParams.get("autoplay")=="true"){
-  qs(".initial").style.display = "none";
-}else {
-  qs(".initial").style.display = "block";
-}
-
 
 var hash;
 
@@ -19,14 +12,14 @@ var show_tokenid = false;
 var show_points = false;
 
 var canvas_resolution = Math.min(window.innerHeight,window.innerWidth)*window.devicePixelRatio;
-var resolution = 1 / 300;
-var animation_speed = 1235; //1500; //time per frame
+var resolution = 1 / 600;
+var animation_speed = 1500; //time per frame
 var lerping_speed = 3000; //time to transition point movements this is extra
 var start_fresh = true; //if true the animation starts from frame 0 instead of frame 15
 var smoother_lerp = false;
-var background_alpha = 1; //.0;
+var background_alpha = .0;
 var line_alpha = 1;
-var fps = 60;
+var fps = 10;
 var clear_after_loop = false;
 
 var degree;
@@ -39,11 +32,6 @@ var canvas, ctx, ani_frames;
 var save_idx=0;
 var old_time = Date.now();
 
-var ilda_frame_count = 0;
-var ilda_points = [];
-var ilda_frames = [];
-var ilda_auto_save = false;
-var ilda_save_start = false;
 
 function setup() {
   // Defining the angle degree of the b-spline
@@ -175,8 +163,6 @@ window.addEventListener("load", function() {
   animate();
 
   setupInterface();
-
-  loadStatic();
 }, true);
 
 
@@ -191,7 +177,6 @@ function animate() {
 var alreadycleared = false;
 function draw() {
 
-  ilda_frame_count++;
 
   var new_time = (Date.now() - old_time) / animation_speed;
 
@@ -201,39 +186,12 @@ function draw() {
 
   if (old_frame_idx == -1) {
     old_frame_idx = 15;
-    //do stuff when a full animation loop is done
-    if (alreadycleared == false) {
-
+    if (clear_after_loop && alreadycleared == false) {
+      console.log("clear");
+      ctx.fillStyle = "rgba(0,0,0,1)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       alreadycleared = true;
-
-
-
-      if (ilda_auto_save) {
-        console.log(ilda_frame_count);
-
-        saveILDA();
-        ilda_auto_save=false;
-        qs(".record_json").style.border = "none";
-      }
-
-      if (ilda_save_start) {
-        ilda_auto_save=true;
-        ilda_save_start=false;
-      }
-
-      ilda_frame_count = 0;
-      ilda_frames=[];
-
-      //clear
-      if (clear_after_loop) {
-        console.log("clear");
-        ctx.fillStyle = "rgba(0,0,0,1)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-
     }
-
-
   }else {
     alreadycleared = false;
   }
@@ -288,7 +246,6 @@ function draw() {
   // console.log(Math.floor(hsl_animation_off*(1/resolution)));
 
   cnt = 0;
-  ilda_points=[];
   for (var t = 0; t < 1; t += resolution) {
     var point = bspline(t * maxT, degree, lerpedPoints);
     //console.log(point);
@@ -297,12 +254,10 @@ function draw() {
     hsl_indx = huearrinter[(cnt + hsl_animation_off_res) % (1 / resolution)];
     //console.log(hsl_indx);
 
-    ctx.strokeStyle = "hsl(" + hsl_indx + "," + saturation + "%," + lightness + "%,"+line_alpha+")";
+    ctx.strokeStyle = "hsla(" + hsl_indx + "," + saturation + "%," + lightness + "%,"+line_alpha+")";
 
     x = point[0];
     y = point[1];
-
-    ilda_points.push(createILDApoint(x,y,hsl2rgb(hsl_indx,saturation,lightness)));
 
     ctx.beginPath();
 
@@ -344,51 +299,8 @@ function draw() {
     save_idx++;
   }
 
-  ilda_frames.push(createILDAframe(ilda_frames.length,animation_speed-(animation_speed/10),ilda_points));
 
 
-}
-
-function hsl2rgb(h,s2,l2)
-{
-  var s = s2/100;
-  var l = l2/100;
-  let a=s*Math.min(l,1-l);
-  let f= (n,k=(n+h/30)%12) => l - a*Math.max(Math.min(k-3,9-k,1),-1);
-  return [f(0),f(8),f(4)];
-  //return [Math.round(255*f(0)),Math.round(255*f(8)),Math.round(255*f(4))];
-}
-
-function saveILDA() {
-  saveJSON(JSON.stringify(ilda_frames));
-}
-
-function createILDApoint(x,y,rgb) {
-  return {
-    "x": Math.floor(map(x,0,canvas_resolution,-32766,32765)),
-    "y": Math.floor(map(y,0,canvas_resolution,-32766,32765)),
-    "z": 0,
-    "r": rgb[0],
-    "g": rgb[1],
-    "b": rgb[2]
-  };
-}
-
-function createILDAframe(index,total,points) {
-  return {
-    "type": 5,
-    "name": "kleee02",
-    "company": "s3 "+Math.floor(index),
-    "points": points,
-    "head": 0,
-    "total": Math.floor(total),
-    "colors": []
-  };
-}
-
-function saveJSON(string) {
-  var blob = new Blob([string], {type: "text/plain;charset=utf-8"});
-  saveAs(blob, "token_"+id+".json");
 }
 
 
@@ -399,11 +311,6 @@ function setupInterface() {
 
   qs(".close").addEventListener("click", function() {
     qs(".overlay").style.display = (qs(".overlay").dataset.toggled ^= 1) ? "block" : "none";
-  });
-
-  qs(".record_json").addEventListener("click", function() {
-    qs(".record_json").style.border = "solid red 5px";
-    ilda_save_start=true;
   });
 
   qs("#animation_speed").addEventListener('input', function () {
@@ -433,21 +340,12 @@ function setupInterface() {
   qs("#clear_after_loop").addEventListener('change', function () {
     clear_after_loop = qs("#clear_after_loop").checked;
   }, false);
-
-  qs(".initial_text").addEventListener('click', function () {
-    qs(".initial").style.display = "none";
-  });
 }
 
 
 /////
 //helpers
 /////
-
-function loadStatic() {
-  var path_ = "https://fungle.xyz/kleee02/data/token_timelapse_gen_token_id_";
-  qs(".initial").style.backgroundImage = 'url('+path_+id.padStart(3, "0")+'.png'+')';
-}
 
 function drawTextTR(text, ctx, color, pos,size) {
   ctx.fillStyle = color;

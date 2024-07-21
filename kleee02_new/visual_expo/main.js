@@ -20,13 +20,13 @@ var show_points = false;
 
 var canvas_resolution = Math.min(window.innerHeight,window.innerWidth)*window.devicePixelRatio;
 var resolution = 1 / 300;
-var animation_speed = 1235; //1500; //time per frame
+var animation_speed = 2326; //1500; //time per frame
 var lerping_speed = 3000; //time to transition point movements this is extra
 var start_fresh = true; //if true the animation starts from frame 0 instead of frame 15
-var smoother_lerp = false;
-var background_alpha = 1; //.0;
-var line_alpha = 1;
-var fps = 60;
+var smoother_lerp = true;
+var background_alpha = 0.03; //.0;
+var line_alpha = 0.966;
+var fps = 137.5;
 var clear_after_loop = false;
 
 var degree;

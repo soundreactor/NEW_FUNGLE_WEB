@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../pico.min.css">
+  <title>Capvis AGM 2022</title>
+  <style media="screen">
+    .bigimg {
+      margin: 150px;
+    width: calc(100% - 300px);
+    margin-top: 40px !important;
+    }
+
+    .grid>* {
+      cursor: pointer;
+      background-color: rgba(120, 120, 120, .1);
+      padding: 30px;
+    }
+
+    h6 {
+      margin-top: 40px !important;
+    }
+
+    .icon {
+      width: 33px;
+      margin-top: -6px;
+      height: 33px;
+      /* filter: invert(70%); */
+      /* filter: opacity(0.5) drop-shadow(0 0 0 black); */
+    }
+
+    @media (max-aspect-ratio: 1/1) and (max-width: 500px) {
+      .bigimg {
+        margin: auto;
+        width: 100%;
+        margin-top: 0px !important;
+        margin-bottom: 20px !important;
+      }
+    }
+
+    #sticker_example{
+      width: 300px;
+      border: 2px solid black;
+    }
+    .warning{
+      color:red;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <hgroup>
+      <h2>
+        Capvis AGM 2022
+        <a target="_blank" href="https://etherscan.io/token/0x61bb4491d637da37b4e03fc9ba39e5505216db95"><img class="icon" src="assets/etherscan.png" /></a>  
+        <a target="_blank" href="https://opensea.io/collection/capvis-agm-2022"><img class="icon" src="assets/opensea.png" /></a>
+      </h2>
+      <h3>
+        <!-- To right-click and save or not to right-click and save. -->
+      </h3>
+    </hgroup>
+
+    <img class="bigimg" src="tiny.jpg" alt="">
+    <p>
+      This 100/100 NFT set is based on the work Zelfgezuigd (Nike of/en Adidas) by artist Francisco Sierra.<br><br>
+      It has been created for the occasion of Capvis’ Annual General Meeting 2022.<br>
+      For over 30 years, Capvis has been generating value in private equity for investors with long-term perspectives.<br>
+      Whereas Capvis focuses on the traditional values of entrepreneurship, professionalism and reliability,<br>
+      we continue to pursue our goal to take you further and constantly grow with the global market and trends.<br><br>
+
+    </p>
+
+    <i>
+      Artist: Francisco Sierra<br>
+      Title of the original painting: Zelfgezuigd (Nike of/en Adidas)<br>
+      Technique of the original painting: Oil on canvas<br>
+      Year: 2019<br>
+      Dimension: 65 x 54 cm
+    </i>
+
+    <br><br>
+
+    <p id="sticker_info">
+      <h3>
+        The sticker with code
+      </h3>
+      <h4 class="warning">WARNING! DO NOT SHARE YOUR PRIVATE KEY WITH ANYONE!</h4>
+      <span class="warning">
+        The private key grants, anyone who has it, access to the account holding the NFT.<br>
+        (like sharing your banking password)
+      </span><br><br>
+      <img id="sticker_example" src="example.jpg" alt=""><br><br>
+      The private key is a key (password) to unlock an Ethereum blockchain account (like a bank account but on the blockchain).<br>
+      For every NFT, we created an account and transfered the NFT to that account. <br>
+      The private key on the sticker is the key to one of these accounts and grants you controll over it.<br><br>
+      To take ownership of your NFT:<br>
+      <a target="_blank" href="https://metamask.zendesk.com/hc/en-us/articles/360015489331-How-to-import-an-Account">Import your NFT Account into Metamask</a>
+      <br><br>
+      <i>fungle recommends that you transfer your NFT from the default account to your personal wallet for increased security
+      <br><br>
+      1. Send a small amount of ETH to the default account<br>
+      2. <a target="_blank" href="https://support.opensea.io/hc/en-us/articles/5183126109715-How-can-I-transfer-an-NFT-using-OpenSea-">Transfer the NFT to your Wallet account</a>
+      </i>
+
+    </p>
+
+
+    <h6>est. 2022</h6>
+  </main>
+
+  <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(){
+    var hash = location.hash.substr(1);
+    if (hash == "sticker") {
+      document.getElementById("sticker_info").scrollIntoView({
+        behavior: 'smooth',
+        alignToTop: true
+      });
+    }
+  });
+
+
+  </script>
+</body>
+
+</html>
