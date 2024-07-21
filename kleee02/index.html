@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.4, shrink-to-fit=yes">
+
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css?kls=lkjsdfs" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css?kls=lkjsdfs" crossorigin="anonymous">
+
+  <title>Kleee02</title>
+
+
+  <meta property="og:title" content="kleee02">
+  <meta property="og:description" content="kleee02 is a coneptual art piece on the ethereum blockchain. Become part of it by buying your own, unique kleee02 token.">
+  <meta name="image" property="og:image" content="https://fungle.xyz/kleee02/junk/img_util.jpg">
+  <meta property="og:url" content="https://fungle.xyz">
+
+  <meta name="twitter:title" content="kleee02">
+  <meta name="twitter:description" content="kleee02 is a coneptual art piece on the ethereum blockchain. Become part of it by buying your own, unique kleee02 token.">
+  <meta name="twitter:image" content="https://fungle.xyz/kleee02/junk/img_util.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- <meta name="image" property="og:image" content="[Image URL here]"> -->
+
+
+  <script src="js/MultiCarousel.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<!-- LOAD THE IPFS FILE. SO IT STAYS CACHED. -->
+<iframe width="1px" height="1px" style="height:1px; width:1px; position:fixed; top:-100px; left:-100px" src="https://ipfs.io/ipfs/QmcccK8ksKNacYFiX2FkMpC9VW8LCVbTaD8Mq1SJj7o5VE"></iframe>
+
+
+<div id="main_wrap">
+  <!-- <h2>KLEEE <span class="badge badge-secondary">02</span></h2> -->
+
+  <div class="jumbotron">
+    <h3 class="display-4">Kleee02</h3>
+    <p >
+
+      <!-- Kleee no 2 is a conceptual art piece on the kleee platform and other performative devices.<br>
+        It lives on the ethereum blockchain, defined and secured by the <a target="_blank" href="https://etherscan.io/address/0x63658cc84a5b2b969b8df9bea129a1c933e1439f">kleee no 2 smart contract</a>.
+        Collectors and art lovers can participate in kleee no 2 by buying a token.
+        Each token is unique, representing an animation created from the hash of the respective buying transaction.<br>
+        The token can be hodled, given away or resold at a profit or a loss ;-). -->
+
+
+         kleee02 is an art piece by <a target="_blank" href="http://reformation.ooo/">Kelian Maissen</a>  & <a target="_blank"  href="https://johannesgees.com/">Johannes Gees</a>. It is a contemporary, blockchain-inspired take on conceptual art or conceptualism.
+        kleee02 is described in the <a target="_blank" href="https://etherscan.io/address/0x63658cc84a5b2b969b8df9bea129a1c933e1439f">kleee no 2 smart contract</a>. <span style="text-decoration: line-through;">You can participate by buying your own, unique kleee02 token.</span>(360 of 360 created.)
+        <a  data-toggle="collapse" href="#kleee02_ex_info" role="button" aria-expanded="true" aria-controls="kleee02_ex_info">
+          less information ..
+        </a>&nbsp;&nbsp;&nbsp;
+          <a target="_blank" href="https://opensea.io/assets/kleee02" class="">[View Gallery on OpenSea.io]</a>
+    </p>
+
+    <div class="collapse show" id="kleee02_ex_info">
+    <div >
+
+      <b>How kleee tokens are created</b><br>
+    By sending the specified amount of Ether to the kleee02 smart contract, the token is created and transferred to you wallet (account).
+    <br><br>
+    <b>How visualizations are created</b><br>
+    The transaction hash from the token creation is used as the variable in the kleee02 algorithm to generate a unique animation, specified by a set of rules that are part of the kleee02  smart contract. Due to the unique variable (hash), each animation is unique.
+    <br><br>
+    By following the set of rules described in the smart contract, other artists and coders are able to create other representations of the art piece (material or non-material).
+    Over time, more visualizations of the kleee02 tokens will be made available, such as the original animation as described in the smart contract, digital prints, laser projections and videos.
+    <br><br>
+    <b>Properties of the kleee02 tokens</b><br>
+    Number of tokens (edition): 360<br>
+    Token Price: the token price is defined by an algorithm: price = current price +current price/75.
+    The sooner you create a token, the lower the price!
+    <br><br>
+    <b>Other ways to participate</b><br>
+    kleee02 is open source. Artists, coders, musicians or dancers are free to develop their own version of kleee02, whether it is a projection, an object or a performance.
+    <br><br>
+    </div>
+    </div>
+
+</div>
+  <div>
+
+    <div id="TokenCarousel">
+    </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Pay with ETH</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="eth-modal">
+
+
+
+        <img class="modal-img img-thumbnail card-img-top" src="https://fungle.xyz/kleee02/kleee02_qr.png">
+          <p class="text-center" style="font-weight:bolder;">0x63658CC84a5B2B969B8dF9bea129A1c933e1439f</p>
+          <p>Transfer the amount below to the address above to create and receive a token. (ETH price includes gas)</p>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">ETH</span>
+          </div>
+          <input id="price_display2" type="text" class="form-control"  placeholder="99999" readonly>
+        </div>
+
+        <p>Please enter your email address, so we can reach you when your token is shown in a show or new visualizations are available.</p>
+        <div class="input-group mb-3">
+          <input id="email_input" type="text" class="form-control" placeholder="email" aria-label="email" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="email_btn">Subscribe</button>
+          </div>
+        </div>
+        <button class="btn btn-primary widebtn" type="button" id="mmpay">Pay with MetaMask</button>
+        <p><i>Transaction fails: increase gas amount to 300'000.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+
+  <div class="jumbotron">
+
+
+    <div>2019<br> fungle.xyz is a gallery platform for discovering original, unique art tokens.
+<br>contact: info<span>@</span><span>fungle.xyz</span></div>
+    <br>
+  </div>
+
+</div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+  <script type="text/javascript" src="js/web3.min.0.20.6.js"></script>
+  <!-- <script type="text/javascript" src="js/web3.min.js"></script> -->
+  <script type="text/javascript" src="js/utils.js?kls=lkjsdfs"></script>
+  <script type="text/javascript" src="js/abi_asabi.js?kls=lkjsdfs"></script>
+  <script type="text/javascript" src="js/main.js?kls=lkjsdfs"></script>
+
+  <a target="_blank" href="https://klvlk.com" rel="author" style="position:fixed;bottom:0;right:0;height:3px;width:3px;color:transparent;">Kelian Maissen</a>
+</body>
+
+</html>

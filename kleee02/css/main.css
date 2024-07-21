@@ -1,0 +1,279 @@
+
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
+body{
+  /* background-color: grey; */
+  color: rgba(255, 255, 255, 0.75);
+  background-color: black;
+}
+
+mark{
+  background-color: yellow;
+}
+
+*{
+  border-radius: 0px!important;
+  font-family: 'Arial', sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* border-color: black; */
+  /* white-space: wrap; */
+  word-break:normal!important;
+}
+.display-4{
+  margin-top: -3px;
+}
+
+.widebtn{
+  width: 100%;
+}
+
+.hiddenboi{
+  display: none;
+}
+#accpdfdl{
+  margin-top: 1rem;
+}
+
+.futureTokenPrice{
+  width: calc(100% - 2.5rem);
+  position: absolute;
+  left: 1.25rem;
+  bottom: 7.07rem;
+}
+
+.card{
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  background-color: black;
+}
+.card-body{
+  border: 1px solid rgba(255, 255, 255, 0.75);
+    border-top: none;
+}
+/* #email_btn{
+  border-top: 0px!important;
+  border-right: 0px!important;
+  border-bottom: 0px!important;
+} */
+
+/* .input-group-text{
+  border-color: transparent!important
+  color:white!important;
+} */
+input, button, .btn{
+  font-size: 20px!important;
+  /* border-color: black; */
+  /* border: 1px solid black!important; */
+
+  /* background-color: white!important; */
+  /* color: black!important */
+
+}
+/* .nui{
+  border: 1px solid black!important;
+}
+.card{
+  border: 1px solid black!important;
+}
+.input-group{
+  border: 1px solid black!important;
+  background-color: white;
+}
+#d_price_display{
+  border: none!important;
+}
+#price_display{
+  border: none!important;
+}
+.input-group-prepend{
+  border: none!important;
+} */
+
+
+
+a:link, a:visited,a:hover, a:active {
+  /* color: rgb(48,125,246); */
+}
+
+
+@media (max-aspect-ratio: 1/1)
+{
+
+  .caro-img{
+    height: calc(100vw - 10px);
+    width: 100vw;
+    background-color: black;
+    object-fit: cover;
+  }
+
+  .card_wrap{
+    width: 100vw;
+    padding: 5px;
+    /* margin-left: -2.5px; */
+  }
+  .card{
+    width: calc(100vw - 10px);
+    height: calc(124vw + 180px);
+  }
+
+  .card-text{
+    font-size: 20px;
+    /* width: calc(100vw - 40px); */
+    height: auto;
+  }
+  .tokenownerhash{
+    font-size: 3.8vw;
+  }
+}
+@media (min-aspect-ratio: 1/1)
+{
+
+  .caro-img{
+    /* height: calc(33.33% - 10px); */
+    width: 100%;
+    background-color: black;
+    object-fit: cover;
+  }
+
+  .card_wrap{
+    width: 33.33%;
+    padding: 5px;
+    /* margin-left: -2.5px; */
+  }
+  .card{
+    width: calc(100%);
+    height: calc(41vw + 180px);
+  }
+  .card-text{
+    font-size: calc(15px + 0.3vw);
+    /* width: calc(33.333vw - 40px); */
+    height: auto;
+  }
+  .tokenownerhash{
+    font-size: calc(66%);
+  }
+}
+/* 1.3 /1 */
+@media (max-aspect-ratio: 26/20)
+{
+
+}
+@media (min-aspect-ratio: 26/20)
+{
+  #main_wrap{
+    width: 130vh;
+    margin-left: calc(100vw/2 - 130vh/2);
+  }
+  .card{
+    height: calc(130vh/3 + 11.3vh + 180px)
+  }
+}
+
+@media (min-aspect-ratio: 1/1) and (max-width: 996px)
+{
+  .card{
+    width: calc(100%);
+    height: calc(60vw + 180px);
+  }
+  html{
+    zoom:70%;
+  }
+}
+
+#stripe_pay_logo{
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  width: 150px;
+  z-index: 9999;
+  /* filter: invert(100%); */
+}
+
+#qrhover{
+  /* background-color: white; */
+  width: calc(100% - 2.5rem);
+  position: absolute;
+  top: calc(16.666vw - 50px);
+  height: 100px;
+}
+#ethButton{
+  width: 100%;
+  position: relative!important;
+  left: auto!important;
+  bottom: auto!important;
+}
+
+.modal-img{
+  margin-bottom: 1rem;
+  width: 300px;
+  margin-left: calc(50% - 150px);
+}
+
+
+.unknown-token{
+  display: inline;
+  background-color: black;
+}
+
+p {
+  word-break: break-all;
+  /* margin-bottom:0px; */
+ }
+
+
+
+
+.multicarousel .items > * {
+  /* height: 200px; */
+  /* background: #FFF9CD;
+  border: 4px solid #00B5B0; */
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 30px;
+}
+.pause.svelte-v96mw1, .start.svelte-v96mw1 {
+    display: none!important;
+}
+.previous.svelte-v96mw1, .next.svelte-v96mw1 {
+  width: 46px!important;
+}
+.previous.svelte-v96mw1 svg, .next.svelte-v96mw1 svg{
+  width: 40px!important;
+  height: 40px!important;
+}
+.svelte-v96mw1{
+  fill:white!important;
+}
+
+.display-4{
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+.badge-secondary{
+  font-size: 90%;
+}
+.jumbotron {
+  max-width: 880px;
+  padding: 1rem 1rem;
+  padding-bottom: 0rem;
+  margin-bottom: 0px;
+  margin-top: 0rem;
+  background-color: black;
+}
+
+#stripeButton{
+  /* width: 100%; */
+  /* visibility: hidden; */
+}
+
+#lowhover{
+  margin-bottom: -1rem;
+}
+
+.lowc{
+  width: calc(100% - 2.5rem);;
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.25rem;
+}

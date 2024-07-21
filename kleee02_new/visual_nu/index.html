@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=no" />
+
+<style media="screen">
+	html,body{
+		font-weight: 200;
+		margin:0;
+		background-color: black;
+		user-select: none;
+	}
+	label{
+		margin-bottom: 30px;
+		margin-bottom: 9px;
+		display: inline-block;
+	}
+	.overlay{
+		font-family: sans-serif;
+		text-transform: uppercase;
+		text-align: left;
+		color:white;
+		position: fixed;
+		top:0;
+		width: 200px;
+		left: 0;
+    /* left: 50%;
+    transform: translate(-50%, 0px); */
+		background: rgba(200,200,200,.3);
+		display: none;
+		padding: 30px;
+
+		/* width: 500px; */
+	}
+
+	/* portrait */
+	@media (max-aspect-ratio: 1/1) {
+		canvas{
+			user-select: none;
+			position: fixed;
+			width: 100vw;
+			height: 100vw;
+			top: calc(50vh - 50vw);
+		}
+	}
+	/* landscape */
+	@media (min-aspect-ratio: 1/1) {
+		canvas{
+			position: fixed;
+			width: 100vh;
+			height: 100vh;
+			left: calc(50vw - 50vh);
+		}
+	}
+
+
+
+	input[type=checkbox] {
+	  width: 23px;
+	  height: 23px;
+	  -webkit-appearance: none;
+	  -moz-appearance: none;
+	  appearance: none;
+	  margin-right: 10px;
+	  background-color: black;
+	  outline: 0;
+	  border: solid 1px white;
+	  display: inline-block;
+	  -webkit-box-shadow: none !important;
+	  -moz-box-shadow: none !important;
+	  box-shadow: none !important;
+	}
+
+	input[type=checkbox]:focus {
+	  outline: none;
+	  border: solid 1px white !important;
+		border-radius: 0px !important;
+	  -webkit-box-shadow: none !important;
+	  -moz-box-shadow: none !important;
+	  box-shadow: none !important;
+	}
+
+	input[type=checkbox]:checked {
+		border: solid 1px white;
+		border-radius: 0px !important;
+	  background-color: white;
+	  text-align: center;
+	  line-height: 15px;
+	}
+
+	input[type=range] {
+	  width: 100%;
+	  margin: 5.85px 0;
+	  background-color: transparent;
+	  -webkit-appearance: none;
+	}
+	input[type=range]:focus {
+	  outline: none;
+	}
+	input[type=range]::-webkit-slider-runnable-track {
+	  background: #000000;
+	  border: 1px solid #ffffff;
+	  border-radius: 0.8px;
+	  width: 100%;
+	  height: 11.3px;
+	  cursor: pointer;
+	}
+	input[type=range]::-webkit-slider-thumb {
+	  margin-top: -6.85px;
+	  width: 23px;
+	  height: 23px;
+	  background: #000000;
+	  border: 1px solid #ffffff;
+	  cursor: pointer;
+	  -webkit-appearance: none;
+	}
+	input[type=range]:focus::-webkit-slider-runnable-track {
+	  background: #000000;
+	}
+	input[type=range]::-moz-range-track {
+	  background: #000000;
+	  border: 1px solid #ffffff;
+	  border-radius: 0.8px;
+	  width: 100%;
+	  height: 11.3px;
+	  cursor: pointer;
+	}
+	input[type=range]::-moz-range-thumb {
+	  width: 23px;
+	  height: 23px;
+	  background: #000000;
+	  border: 1px solid #ffffff;
+	  cursor: pointer;
+	}
+	input[type=range]::-ms-track {
+	  background: transparent;
+	  border-color: transparent;
+	  border-width: 8.45px 0;
+	  color: transparent;
+	  width: 100%;
+	  height: 11.3px;
+	  cursor: pointer;
+	}
+	input[type=range]::-ms-fill-lower {
+	  background: #000000;
+	  border: 1px solid #ffffff;
+	  border-radius: 1.6px;
+	}
+	input[type=range]::-ms-fill-upper {
+	  background: #000000;
+	  border: 1px solid #ffffff;
+	  border-radius: 1.6px;
+	}
+	input[type=range]::-ms-thumb {
+	  width: 23px;
+	  height: 23px;
+	  background: #000000;
+	  border: 1px solid #ffffff;
+	  cursor: pointer;
+	  margin-top: 0px;
+	  /*Needed to keep the Edge thumb centred*/
+	}
+	input[type=range]:focus::-ms-fill-lower {
+	  background: #000000;
+	}
+	input[type=range]:focus::-ms-fill-upper {
+	  background: #000000;
+	}
+
+	.close{
+		position: absolute;
+		top:20px;
+		right: 20px;
+	}
+
+</style>
+
+<canvas id="canvas" width="1080" height="1080"></canvas>
+
+
+<div class="overlay">
+	<div class="close">
+		X
+	</div>
+	<br>
+	<label for="line_alpha">line alpha</label><br>
+	<input type="range" id="line_alpha" name="line_alpha" value="1" min="0" max="1" step=".002">
+	<br><br>
+	<label for="background_alpha">background alpha</label><br>
+	<input type="range" id="background_alpha" name="background_alpha" value="0" min="0" max="1" step=".002">
+	<br><br>
+	<label for="fps">fps</label><br>
+	<input type="range" id="fps" name="fps" value="10" min=".5" max="300" step=".5">
+	<br><br>
+	<label for="fps">animation speed</label><br>
+	<input type="range" id="animation_speed" name="animation_speed" value="-1500" min="-10000" max="-10" step="1">
+	<br><br>
+	<label for="clear_after_loop">clear after loop</label><br>
+	<input type="checkbox" id="clear_after_loop" name="clear_after_loop" >
+	<br><br>
+	<label for="smoother_lerp">smoother lerp</label><br>
+	<input type="checkbox" id="smoother_lerp" name="smoother_lerp" >
+	<br><br>
+</div>
+
+
+
+<script src="FileSaver.min.js" charset="utf-8"></script>
+<script src="hash_tokenid.js" charset="utf-8"></script>
+<script src="bspline.js" charset="utf-8"></script>
+<script src="main.js" charset="utf-8"></script>
+
+</html>

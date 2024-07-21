@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://checkout.stripe.com/checkout.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>KLEEE 02</title>
+  </head>
+  <body>
+    <!-- <h1 id="show_owner">Hello, world!</h1> -->
+
+    <!-- <h2>KLEEE <span class="badge badge-secondary">02</span></h2> -->
+
+<div >
+
+<!-- <img src="kleee02_qr.png" alt="0x63658CC84a5B2B969B8dF9bea129A1c933e1439f" class="img-thumbnail"> -->
+
+
+<div class="card" style="width: 24rem; left:-12rem; margin-left:50%; margin-top: 7%;">
+  <!-- <img src="kleee02_qr.png" class="card-img-top" alt="0x63658CC84a5B2B969B8dF9bea129A1c933e1439f" style="padding:22px"> -->
+
+  <figure class="figure">
+  <img src="kleee02_qr.png" class="card-img-top" alt="0x63658CC84a5B2B969B8dF9bea129A1c933e1439f" style="padding:22px">
+  <figcaption style="margin-left:22px;font-size:50%;" class="figure-caption">0x63658CC84a5B2B969B8dF9bea129A1c933e1439f</figcaption>
+</figure>
+
+
+  <div class="card-body">
+    <h5 class="card-title">KLEEE 02</h5>
+    <p class="card-text">Transfer below amount in ETH to above address to receive a Token. <a href="https://opensea.io/assets/kleee02" class="alert-link">View Gallery</a></p>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">ETH</span>
+      </div>
+      <input id="price_display" type="text" class="form-control"  placeholder="99999" readonly>
+    </div>
+
+    <button type="button" class="btn btn-warning" disabled>TWINT</button>  <button type="button" id="stripeButton" class="btn btn-primary">STRIPE</button>
+<br><br>
+
+      <p class="text-justify" style="">
+      kleee no 2 is a conceptual art piece fo the kleee platform and other performative devices. It lives on the ethereum blockchain, defined and secured by the kleee no 2 smart contract. Collectors and art lovers can participate in kleee no 2 by buying a token.
+    </p>
+
+
+  </div>
+</div>
+
+<div>
+
+  </div>
+
+
+</div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+  <script type="text/javascript" src="js/web3.min.js"></script>
+<script type="text/javascript">
+
+var contract_address = '0x63658cc84a5b2b969b8df9bea129a1c933e1439f';
+
+var web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/de3b7281121c4be3ba794c13bb8f34eb"));
+
+
+
+function loadJSON(path, success, error)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success)
+                    success(JSON.parse(xhr.responseText));
+            } else {
+                if (error)
+                    error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
+}
+
+
+  var abi = [{"constant":true,"inputs":[{"name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"tokenId","type":"uint256"}],"name":"getApproved","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"tokenId","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newstring","type":"string"}],"name":"changeInfo","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"index","type":"uint256"}],"name":"tokenOfOwnerByIndex","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"info","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokenId","type":"uint256"}],"name":"safeTransferFrom","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"index","type":"uint256"}],"name":"tokenByIndex","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"renounceOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"isOwner","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"price","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"approved","type":"bool"}],"name":"setApprovalForAll","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"infohasnotbeenset","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokenId","type":"uint256"},{"name":"_data","type":"bytes"}],"name":"safeTransferFrom","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"liveTokenId","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newowner","type":"address"}],"name":"createToken","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"baseTokenURI","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newstring","type":"string"}],"name":"changeBaseTokenURI","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"operator","type":"address"}],"name":"isApprovedForAll","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"from","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"PaymentReceived","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"tokenId","type":"uint256"}],"name":"TokenMinted","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":true,"name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"approved","type":"address"},{"indexed":true,"name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"operator","type":"address"},{"indexed":false,"name":"approved","type":"bool"}],"name":"ApprovalForAll","type":"event"}];
+
+
+var kleee02_c = new web3.eth.Contract(abi,contract_address);
+
+// initiate contract for an address
+//var kleee02_c = MyContract .at();
+
+// call constant function (synchronous way)
+var price = kleee02_c .methods.price().call().then((result) => {
+  price = web3.utils.fromWei(result, "ether");
+  price = (Math.ceil(price*1000)/1000);
+
+  document.getElementById("price_display").placeholder = price.toFixed(3);
+  console.log("price="+price);
+
+
+  loadJSON('https://api.etherscan.io/api?module=stats&action=ethprice&apikey=PTCA92VPDU5J2RXFBHYH1ERN5HGBFXWZME',
+           function(data) {
+
+             console.log(data);
+            window.token_price_usd = data.result.ethusd * price;
+
+
+            console.log(window.token_price_usd);
+
+
+            document.getElementById('stripeButton').addEventListener('click', function(e) {
+              // Open Checkout with further options:
+              handler.open({
+                name: 'Kleee 02',
+                description: '1 Token.',
+                currency: 'usd',
+                amount: window.token_price_usd*100,
+                allowRememberMe: true
+              });
+              e.preventDefault();
+            });
+
+
+           },
+           function(xhr) { console.error(xhr); }
+  );
+
+
+
+});
+
+
+
+
+
+function clickstripe(){
+
+}
+
+
+var handler = StripeCheckout.configure({
+  key: 'pk_live_9HCeWN9tguequ76JtD8AYtME',
+  image: 'https://www.settingforfour.com/wp-content/uploads/2018/10/Sherwin-Williams-pure-white-paint-color.png',
+  locale: 'auto',
+  token: function(token) {
+
+    console.log(token);
+    window.location.href = "/kleee02/buy/payToken.php?stripeToken="+token.id+"&email="+token.email+"&price_usd="+window.token_price_usd*100;
+    // You can access the token ID with `token.id`.
+    // Get the token ID to your server-side code for use.
+  }
+});
+
+
+
+// Close Checkout on page navigation:
+window.addEventListener('popstate', function() {
+  handler.close();
+});
+
+</script>
