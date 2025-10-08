@@ -26,7 +26,7 @@ var resolution = 1 / 300;
 var animation_speed = 1235;   // ms per frame step (drives 0..1 frame progress)
 var lerping_speed   = 3000;   // ms "time constant" for smooth mode (larger = more overlap)
 var start_fresh = true;
-var smoother_lerp = false;
+var smoother_lerp = true;
 var background_alpha = 1;
 var line_alpha = 1;
 var fps = 60;
